@@ -5,6 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Layout_Page from './pages/Layout_Page'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Login_Page from './pages/Login_Page'
+import Register_Page from './pages/Register_Page'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +16,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout_Page/>}></Route>
+          <Route path='/olp/login' element={<Login_Page/>}></Route>
+          <Route path='/olp/register' element={<Register_Page/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

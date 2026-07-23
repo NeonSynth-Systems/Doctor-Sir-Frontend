@@ -8,10 +8,18 @@ const About_Section = () => {
       style={{ backgroundImage: `url(${Aboutimg})` }}
     >
       <div className=" w-full h-full bg-emerald-950/95 flex flex-col items-center p-20">
-        <p className=" text-white text-2xl font-semibold">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className=" text-white text-2xl font-semibold"
+        >
           කවුද මේ ඩොක්ටර් සර්?
         </p>
-        <div className=" w-150 h-55 bg-emerald-100 rounded-2xl p-5 mt-20">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className=" w-150 h-55 bg-emerald-100 rounded-2xl p-5 mt-20"
+        >
           <p className=" text-lg font-bold text-center pb-10">
             අනාගත වෛද්‍යවරයෙකුගෙන් ජීව විද්‍යාව ඉගෙන ගන්න.
           </p>
@@ -22,7 +30,11 @@ const About_Section = () => {
             ඉගැන්වීමක්.
           </p>
         </div>
-        <div className=" w-full h-160 flex justify-between space-x-10 mt-20">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className=" w-full h-160 flex justify-between space-x-10 mt-20"
+        >
           <div className=" w-1/2 h-full overflow-hidden rounded-lg">
             <img
               src={Aboutimg}
@@ -63,6 +75,62 @@ const About_Section = () => {
                 A/L Biology Educator
               </p>
             </div>
+          </div>
+        </div>
+        <p
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className=" text-center text-emerald-200 pt-20 text-lg"
+        >
+          " ජීව විද්‍යාව සරලව, තේරුම් ගත හැකි ලෙස සහ විභාගයට ගැළපෙන ආකාරයෙන්
+          ඉගැන්වීම මගේ අරමුණයි. වෛද්‍ය අධ්‍යාපනයෙන් ලබාගත් විද්‍යාත්මක දැනුම හා
+          අත්දැකීම් භාවිතා කරමින් සෑම සිසුවෙකුටම විෂය පිළිබඳ නිවැරදි අවබෝධයක්
+          ලබාදීමට කැපවී සිටිමි. "
+        </p>
+        <div className=" w-full grid grid-cols-4 gap-5 pt-20">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
+          >
+            <p className="  font-bold text-lg text-center">
+              සංකල්ප මූලික ඉගැන්වීම
+            </p>
+            <p className=" text-center">
+              විෂය මතක තබා ගැනීම වෙනුවට තේරුම් ගැනීමට අවධානය.
+            </p>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
+          >
+            <p className="  font-bold text-lg text-center">
+              සම්පූර්ණ විෂය නිර්දේශය
+            </p>
+            <p className=" text-center">
+              Theory, Revision සහ Paper Class එකම තැනක.
+            </p>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
+          >
+            <p className="  font-bold text-lg text-center">සතියේ ඇගයීම්</p>
+            <p className=" text-center">
+              නිරන්තර පරීක්ෂණ හා ප්‍රගතිය නිරීක්ෂණය.
+            </p>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
+          >
+            <p className="  font-bold text-lg text-center">විභාග ඉලක්කය</p>
+            <p className=" text-center">
+              A සාමාර්ථයක් සඳහා සැලසුම් කළ ඉගැන්වීම් ක්‍රමවේදය.
+            </p>
           </div>
         </div>
       </div>
