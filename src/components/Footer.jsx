@@ -3,6 +3,7 @@ import { FaFacebook, FaInstagramSquare, FaTelegramPlane, FaYoutube } from "react
 import { FaLocationDot, FaTiktok } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToSection = (id) => {
@@ -90,8 +91,8 @@ const Footer = () => {
           <p className=" text-white">Online Learning Platform</p>
         </div>
         <div className="flex flex-col items-start space-y-2">
-          <button className=" bg-gray-300 px-8 py-1 rounded-full font-bold text-emerald-900 hover:bg-lime-400 hover:text-black cursor-pointer">Login</button>
-          <button className=" bg-gray-500 px-8 py-1 rounded-full text-lime-100 hover:bg-lime-400 hover:text-black font-bold cursor-pointer">Register</button>
+          <Link to="/olp/login" target="blank"><button className=" bg-gray-300 px-8 py-1 rounded-full font-bold text-emerald-900 hover:bg-lime-400 hover:text-black cursor-pointer">Login</button></Link>
+          <Link to="/olp/register" target="blank"><button className=" bg-gray-500 px-8 py-1 rounded-full text-lime-100 hover:bg-lime-400 hover:text-black font-bold cursor-pointer">Register</button></Link>
           <p className=" text-gray-300">Contact</p>
           <div className=" flex items-center space-x-5 text-white">
             <IoLogoWhatsapp/>

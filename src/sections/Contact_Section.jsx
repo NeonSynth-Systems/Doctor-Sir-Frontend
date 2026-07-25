@@ -6,6 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { RiTelegram2Fill } from "react-icons/ri";
 import { FaFacebookF, FaTiktok } from "react-icons/fa6";
 import { FaInstagramSquare, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Contact_Section = () => {
   return (
@@ -190,9 +191,11 @@ const Contact_Section = () => {
               ගුණාත්මක පන්ති සමඟ ඔබේ ඉලක්කය කරා ගමන් ආරම්භ කරන්න.
             </p>
           </div>
-          <button className="w-80 px-10 py-3 bg-lime-500 text-lime-50 hover:bg-emerald-200 hover:text-black cursor-pointer font-bold rounded-lg mt-5">
-            ලියාපදිංචි වන්න
-          </button>
+          <Link to="/olp/register" target="blank">
+            <button className="w-80 px-10 py-3 bg-lime-500 text-lime-50 hover:bg-emerald-200 hover:text-black cursor-pointer font-bold rounded-lg mt-5">
+              ලියාපදිංචි වන්න
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import { FaVideo } from "react-icons/fa6";
 import { FiClock } from "react-icons/fi";
 import { PiArrowArcLeftBold } from "react-icons/pi";
 import { TbWorld } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const Classes_Section = () => {
   return (
@@ -176,9 +177,11 @@ const Classes_Section = () => {
           <div className=" w-full flex items-center justify-center mt-15">
             <button className=" w-65 bg-lime-500 rounded-lg px-10 py-3 cursor-pointer group hover:bg-emerald-200">
               <div className=" flex space-x-2 items-center justify-center">
-                <p className=" text-lime-50 group-hover:text-black font-bold">
-                  ලියාපදිංචි වන්න
-                </p>
+                <Link to="/olp/register" target="blank">
+                  <p className=" text-lime-50 group-hover:text-black font-bold">
+                    ලියාපදිංචි වන්න
+                  </p>
+                </Link>
                 <FaArrowAltCircleRight className=" text-white group-hover:text-black" />
               </div>
             </button>
@@ -190,79 +193,83 @@ const Classes_Section = () => {
 
       {/* Classes time */}
 
-      <div data-aos="fade-up" data-aos-duration="3000" className=" w-full flex justify-center space-x-10 mt-20">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        className=" w-full flex justify-center space-x-10 mt-20"
+      >
         <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
           <p className=" text-lg font-semibold pb-5">2027 Theory</p>
           <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt/>
+            <FaCalendarAlt />
             <p>සෙනසුරාදා</p>
           </div>
           <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock/>
+            <FaClock />
             <p>ප.ව. 1.00 - 5.00</p>
           </div>
           <div className=" flex space-x-5 text-amber-500">
-            <FaLocationDot/>
+            <FaLocationDot />
             <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
           </div>
         </div>
         <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
           <p className=" text-lg font-semibold pb-5">2028 Theory</p>
           <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt/>
+            <FaCalendarAlt />
             <p>ඉරිදා</p>
           </div>
           <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock/>
+            <FaClock />
             <p>ප.ව. 1.00 - 5.00</p>
           </div>
           <div className=" flex space-x-5 text-amber-500">
-            <FaLocationDot/>
+            <FaLocationDot />
             <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
           </div>
         </div>
         <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
           <p className=" text-lg font-semibold pb-5">Paper Class</p>
           <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt/>
+            <FaCalendarAlt />
             <p>බ්‍රහස්පතින්දා</p>
           </div>
           <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock/>
+            <FaClock />
             <p>ප.ව. 7.00 - 10.00</p>
           </div>
           <div className=" flex space-x-5 text-blue-400">
-            <TbWorld className=" text-xl"/>
+            <TbWorld className=" text-xl" />
             <p>Online</p>
           </div>
         </div>
         <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
           <p className=" text-lg font-semibold pb-5">2027 Paper</p>
           <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt/>
+            <FaCalendarAlt />
             <p>බ්‍රහස්පතින්දා</p>
           </div>
           <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock/>
+            <FaClock />
             <p>ප.ව. 7.00 - 10.00</p>
           </div>
           <div className=" flex space-x-5 text-amber-500">
-            <FaLocationDot/>
+            <FaLocationDot />
             <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
           </div>
         </div>
         <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
           <p className=" text-lg font-semibold pb-5">2027 Revision</p>
           <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt/>
+            <FaCalendarAlt />
             <p>බ්‍රහස්පතින්දා</p>
           </div>
           <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock/>
+            <FaClock />
             <p>ප.ව. 1.00 - 5.00</p>
           </div>
           <div className=" flex space-x-5 text-amber-500">
-            <FaLocationDot/>
+            <FaLocationDot />
             <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
           </div>
         </div>

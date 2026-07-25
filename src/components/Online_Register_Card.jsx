@@ -6,6 +6,7 @@ import { MdOutlineSlowMotionVideo } from "react-icons/md";
 import { FaVideo } from "react-icons/fa6";
 import { FiClock } from "react-icons/fi";
 import { PiArrowArcLeftBold } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const Online_Register_Card = () => {
   return (
@@ -70,9 +71,11 @@ const Online_Register_Card = () => {
           <div className=" w-full flex items-center mt-10">
             <button className=" w-65 bg-lime-500 rounded-lg px-10 py-3 cursor-pointer group hover:bg-emerald-200">
               <div className=" flex space-x-2 items-center justify-center">
-                <p className=" text-lime-50 group-hover:text-black font-bold">
-                  ලියාපදිංචි වන්න
-                </p>
+                <Link to="/olp/register" target="blank">
+                  <p className=" text-lime-50 group-hover:text-black font-bold">
+                    ලියාපදිංචි වන්න
+                  </p>
+                </Link>
                 <FaArrowAltCircleRight className=" text-white group-hover:text-black" />
               </div>
             </button>
