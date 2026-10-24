@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 
 import API from "@/api/axios";
 
@@ -8,12 +15,10 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const getCurrentUser = async () => {
+  const getCurrentUser = useCallback(async () => {
     try {
       const response = await API.get("/auth/me");
-
       setUser(response.data.user);
-
       return response.data.user;
     } catch (error) {
       setUser(null);
@@ -21,17 +26,34 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     getCurrentUser();
-  }, []);
+  }, [getCurrentUser]);
+
+  const login = async (email, password) => {
+    const response = await API.post("/auth/login", {
+      email,
+      password,
+    });
+
+    // The server sets the HTTP-only cookie.
+    // Refresh the authenticated user from the server.
+    const currentUser = await getCurrentUser();
+
+    if (!currentUser) {
+      throw new Error(
+        "Login succeeded, but the session could not be verified."
+      );
+    }
+
+    return currentUser;
+  };
 
   const logout = async () => {
     try {
       await API.post("/auth/logout");
-    } catch (error) {
-      console.error(error);
     } finally {
       setUser(null);
     }
@@ -43,6 +65,7 @@ export const AuthProvider = ({ children }) => {
         user,
         setUser,
         loading,
+        login,
         logout,
         getCurrentUser,
       }}
@@ -52,6 +75,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);

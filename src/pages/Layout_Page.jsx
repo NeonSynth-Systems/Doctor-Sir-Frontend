@@ -13,14 +13,26 @@ const Layout_Page = () => {
   },[])
 
   return (
-    <div className=' w-full min-h-screen bg-cover bg-fixed overflow-hidden' style={{ backgroundImage: `url(${BgImage})` }}>
-      <div className=' w-full h-full relative'>
-        <div className=' absolute z-50 top-0 left-0 '>
-          <Navbar/>
+    <div className="relative isolate w-full min-h-screen overflow-clip">
+      {/* Fixed background layer */}
+      <div
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url("${BgImage}")`,
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Page content */}
+      <div className="relative w-full">
+        <div className="absolute z-50 top-0 left-0">
+          <Navbar />
         </div>
-        <Home_Page/>
+
+        <Home_Page />
       </div>
-      <Footer/>
+
+      <Footer />
     </div>
   )
 }

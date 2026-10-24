@@ -56,51 +56,43 @@ const Login_Page = () => {
     });
   };
 
-  const { getCurrentUser } = useAuth();
+  const { getCurrentUser, setUser } = useAuth();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setError("");
 
-    setError("");
+  try {
+    setLoading(true);
 
-    if (!formData.email || !formData.password) {
-      setError("Please enter your email and password.");
-      return;
+    const response = await API.post("/auth/login", {
+      email: formData.email,
+      password: formData.password,
+    });
+
+    const loggedInUser = response.data.user;
+
+    if (!loggedInUser) {
+      throw new Error("Login response did not include a user.");
     }
 
-    try {
-      setLoading(true);
+    setUser(loggedInUser);
 
-      const response = await API.post("/auth/login", {
-        email: formData.email,
-        password: formData.password,
-      });
-
-      const loggedInUser = await getCurrentUser();
-
-      if (loggedInUser?.role === "admin") {
-        navigate("/olp/admin");
-      } else {
-        navigate("/olp/home");
-      }
-
-      console.log("Login successful:", response.data);
-
-      // JWT should be stored in an HTTP-only cookie by the backend.
-      // No need to store the token in localStorage.
-
-    } catch (error) {
-      console.error(error);
-
-      if (error.response) {
-        setError(error.response.data.message || "Invalid email or password.");
-      } else {
-        setError("Unable to connect to the server.");
-      }
-    } finally {
-      setLoading(false);
+    if (loggedInUser.role === "admin") {
+      navigate("/olp/admin");
+    } else {
+      navigate("/olp/home");
     }
-  };
+  } catch (error) {
+    setError(
+      error.response?.data?.message ||
+        error.message ||
+        "Login failed. Please try again."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
