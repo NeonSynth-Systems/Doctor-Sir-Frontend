@@ -1,9 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Maname&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 @import "tailwindcss";
 @font-face {
   font-family: "THARU_DIGITAL_SANSALA";
-  src: url("/src/assets/THARU_DIGITAL_SANSALA.ttf") format("truetype");
+  src: url("./assets//tharu_digital_sansala.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "keko-niruthi";
+  src: url("./fonts/keko-niruthi.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CCMottaTypeOne";
+  src: url("./fonts/CCMottaTypeOne.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FMGemunu";
+  src: url("./fonts/fmgemunux.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IsiGamunu";
+  src: url("./fonts/isigemun_0.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IsiRajantha";
+  src: url("./fonts/isirajan_0.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Yaldevi Colombo";
+  src: url("./fonts/YaldeviColombo-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Su_Palitha";
+  src: url("./fonts/ubin18s.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "THARU DIGITAL MAHEE";
+  src: url("./fonts/tharu_digital_mahee.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SARA-GUNE";
+  src: url("./fonts/sara-gune.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NPW-Nilakshi";
+  src: url("./fonts/npw-nilakshi.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

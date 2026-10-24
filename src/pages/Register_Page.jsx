@@ -11,25 +11,104 @@ import {
   MdPhone,
 } from "react-icons/md";
 import ShinyText from "@/components/ShinyText";
-import {
-  FaLock,
-  FaMobileAlt,
-  FaRegFilePdf,
-  FaRegStar,
-  FaUserGraduate,
-} from "react-icons/fa";
+import { FaLock, FaMobileAlt, FaRegStar, FaUserGraduate } from "react-icons/fa";
 import { FiClock } from "react-icons/fi";
 import { FaBook, FaLocationDot } from "react-icons/fa6";
 import InputAdornment from "@mui/material/InputAdornment";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import IconButton from "@mui/material/IconButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import API from "@/api/axios";
 
 const Register_Page = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    school: "",
+    alYear: "",
+    district: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const years = ["2027 A/L", "2028 A/L"];
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    setError("");
+    setSuccess("");
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    if (formData.password.length < 8) {
+      setError("Password must be at least 8 characters");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await API.post("/auth/register", {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        school: formData.school,
+        alYear: formData.alYear,
+        district: formData.district,
+        password: formData.password,
+      });
+
+      console.log(response.data);
+
+      setSuccess("Account created successfully!");
+
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        school: "",
+        alYear: "",
+        district: "",
+        password: "",
+        confirmPassword: "",
+      });
+
+      // Go to login after a short delay
+      setTimeout(() => {
+        navigate("/olp/login");
+      }, 1500);
+    } catch (error) {
+      console.error(error);
+
+      if (error.response) {
+        setError(error.response.data.message || "Registration failed");
+      } else {
+        setError("Unable to connect to server");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const years = ["2027", "2028"];
   const districts = [
     "Ampara",
     "Anuradhapura",
@@ -60,12 +139,12 @@ const Register_Page = () => {
 
   return (
     <div
-      className=" w-full h-full bg-cover"
+      className=" w-full min-h-screen bg-cover"
       style={{ backgroundImage: `url(${LoginImg})` }}
     >
-      <div className=" w-full h-full bg-emerald-950/80 flex flex-col items-center px-20 py-10">
-        <div className=" w-full h-full flex space-x-10">
-          <div className=" w-1/2 h-full flex flex-col justify-between">
+      <div className=" w-full min-h-screen bg-emerald-950/80 flex flex-col items-center px-10 lg:px-15 py-10">
+        <div className=" w-full h-full flex  flex-col lg:flex-row lg:space-x-10">
+          <div className="w-full lg:w-1/2 h-full flex flex-col justify-between">
             <ShinyText
               text="ඩොක්ටර් සර්ගේ Bio පන්තිය"
               speed={2}
@@ -77,35 +156,30 @@ const Register_Page = () => {
               yoyo={false}
               pauseOnHover={false}
               disabled={false}
-              className="text-4xl font-bold font-['Maname'] h-12"
+              className=" text-2xl md:text-4xl font-bold font-['Maname'] h-12"
             />
-            <p className=" font-bold text-6xl text-white mt-10 text-shadow-2xs text-shadow-black">
+            <p className=" font-bold text-4xl md:text-6xl text-white mt-5 md:mt-10 text-shadow-2xs text-shadow-black">
               Student
             </p>
-            <p className=" font-bold text-6xl text-lime-500 text-shadow-2xs text-shadow-black">
+            <p className=" font-bold text-4xl md:text-6xl text-lime-500 text-shadow-2xs text-shadow-black">
               Registration
             </p>
-            <p className=" mt-5 text-white w-80">
+            <p className=" mt-5 text-sm md:text-base text-white md:w-80">
               අපගේ Student Learning Platform වෙත සම්බන්ධ වී නොමිලේ වීඩියෝ පාඩම්,
               නිබන්ධන සහ Premium පාඩම් වෙත ප්‍රවේශය ලබාගන්න.
             </p>
-            <div className=" w-full h-full">
+            <div className=" w-full h-full mt-5 md:mt-0">
               <img
                 src={LaptopMockup}
                 alt=""
-                className=" w-full h-full object-contain scale-x-[-1]"
+                className=" w-full h-full object-contain"
               />
             </div>
-            <div className=" w-full grid grid-cols-5 gap-3 mt-20">
+            <div className=" w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-20">
               <div className=" w-full bg-emerald-900 p-2 rounded-lg border border-lime-300 flex flex-col items-center">
                 <MdOutlineSlowMotionVideo className=" text-3xl text-lime-400 mb-3" />
                 <p className=" text-white font-bold text-lg">100+</p>
                 <p className=" text-gray-300 text-xs">Video Lessons</p>
-              </div>
-              <div className=" w-full bg-emerald-900 p-2 rounded-lg border border-lime-300 flex flex-col items-center">
-                <FaRegFilePdf className=" text-3xl text-lime-400 mb-3" />
-                <p className=" text-white font-bold text-lg">PDF</p>
-                <p className=" text-gray-300 text-xs">Notes</p>
               </div>
               <div className=" w-full bg-emerald-900 p-2 rounded-lg border border-lime-300 flex flex-col items-center">
                 <FaRegStar className=" text-3xl text-lime-400 mb-3" />
@@ -124,12 +198,13 @@ const Register_Page = () => {
               </div>
             </div>
           </div>
-          <div className=" w-1/2 h-full">
+          <div className=" w-full lg:w-1/2 h-full mt-10 lg:mt-0">
             <form
               action=""
-              className=" w-full h-full rounded-lg bg-linear-to-b from-emerald-950 to-emerald-900 border border-lime-400/30 shadow-2xl px-10 py-5"
+              onSubmit={handleRegister}
+              className=" w-full h-full rounded-lg bg-linear-to-b from-emerald-950 to-emerald-900 border border-lime-400/30 shadow-2xl px-3 md:px-10 py-5"
             >
-              <div className=" flex items-center justify-center mb-10">
+              <div className=" flex flex-col md:flex-row items-center justify-center mb-10">
                 <div className=" w-12 h-12 flex items-center justify-center rounded-full border border-lime-600">
                   <MdOutlinePersonOutline className=" text-3xl text-lime-300" />
                 </div>
@@ -140,6 +215,10 @@ const Register_Page = () => {
               <TextField
                 placeholder="Full Name"
                 type="text"
+                required
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 sx={{
                   width: "100%",
                   marginBottom: "20px",
@@ -180,6 +259,9 @@ const Register_Page = () => {
                 placeholder="Email"
                 required
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 sx={{
                   width: "100%",
                   marginBottom: "20px",
@@ -219,6 +301,10 @@ const Register_Page = () => {
               <TextField
                 placeholder="Phone Number"
                 type="tel"
+                required
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 sx={{
                   width: "100%",
                   marginBottom: "20px",
@@ -258,6 +344,10 @@ const Register_Page = () => {
               <TextField
                 placeholder="School"
                 type="text"
+                required
+                name="school"
+                value={formData.school}
+                onChange={handleChange}
                 sx={{
                   width: "100%",
                   marginBottom: "20px",
@@ -301,6 +391,13 @@ const Register_Page = () => {
                 <Autocomplete
                   disablePortal
                   options={years}
+                  value={formData.alYear}
+                  onChange={(event, newValue) => {
+                    setFormData({
+                      ...formData,
+                      alYear: newValue || "",
+                    });
+                  }}
                   sx={{
                     width: "100%",
                     "& .MuiOutlinedInput-root": {
@@ -341,7 +438,12 @@ const Register_Page = () => {
                     },
                   }}
                   renderInput={(params) => (
-                    <TextField {...params} placeholder="A/L Year" />
+                    <TextField
+                      {...params}
+                      placeholder="A/L Year"
+                      required
+                      name="alYear"
+                    />
                   )}
                 />
               </div>
@@ -352,6 +454,13 @@ const Register_Page = () => {
                 <Autocomplete
                   disablePortal
                   options={districts}
+                  value={formData.district}
+                  onChange={(event, newValue) => {
+                    setFormData({
+                      ...formData,
+                      district: newValue || "",
+                    });
+                  }}
                   sx={{
                     width: "100%",
                     "& .MuiOutlinedInput-root": {
@@ -392,13 +501,22 @@ const Register_Page = () => {
                     },
                   }}
                   renderInput={(params) => (
-                    <TextField {...params} placeholder="District" />
+                    <TextField
+                      {...params}
+                      placeholder="District"
+                      required
+                      name="district"
+                    />
                   )}
                 />
               </div>
               <TextField
                 placeholder="Password"
                 type={showPassword ? "text" : "password"}
+                required
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 sx={{
                   width: "100%",
                   marginBottom: "20px",
@@ -452,6 +570,10 @@ const Register_Page = () => {
               <TextField
                 placeholder="Confirm Password"
                 type={showConfirmPassword ? "text" : "password"}
+                required
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
                 sx={{
                   width: "100%",
                   marginBottom: "20px",
@@ -504,8 +626,22 @@ const Register_Page = () => {
                   },
                 }}
               />
-              <button className=" w-full bg-lime-600 py-5 rounded-lg text-white font-bold">
-                Register Now
+              {error && (
+                <div className="mb-5 rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-center text-red-300">
+                  {error}
+                </div>
+              )}
+              {success && (
+                <div className="mb-5 rounded-xl border border-lime-400/40 bg-lime-400/10 px-4 py-3 text-center text-lime-300">
+                  {success}
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className=" w-full cursor-pointer bg-lime-600 py-5 rounded-lg text-white font-bold"
+              >
+                {loading ? "Creating Account..." : "Register Now"}
               </button>
               <div className=" w-full flex space-x-2 items-center my-5">
                 <div className=" w-full bg-white h-px"></div>
@@ -513,9 +649,11 @@ const Register_Page = () => {
                 <div className=" w-full bg-white h-px"></div>
               </div>
               <div className=" flex space-x-3 justify-center">
-                <p className=" text-white">Already have an account?</p>
+                <p className="text-sm md:text-base text-white">
+                  Already have an account?
+                </p>
                 <Link to="/olp/login">
-                  <p className=" text-lime-400">Login</p>
+                  <p className="text-sm md:text-base text-lime-400">Login</p>
                 </Link>
               </div>
             </form>

@@ -6,6 +6,7 @@ import Wten_Section from '@/sections/Wten_Section'
 import Institute_Section from '@/sections/Institute_Section'
 import Online_Register_Card from '@/components/Online_Register_Card'
 import Contact_Section from '@/sections/Contact_Section'
+import WeeklyWorksSection from '@/sections/WeeklyWorksSection'
 
 const Home_Page = () => {
   return (
@@ -15,6 +16,9 @@ const Home_Page = () => {
       </section>
       <section id='registercard'>
         <Online_Register_Card/>
+      </section>
+      <section id='weekly'>
+        <WeeklyWorksSection/>
       </section>
       <section id='about'>
         <About_Section/>

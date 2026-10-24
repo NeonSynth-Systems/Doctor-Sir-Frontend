@@ -10,26 +10,26 @@ import { Link } from "react-router-dom";
 
 const Online_Register_Card = () => {
   return (
-    <div className=" w-full h-full bg-black/50 p-20 flex flex-col items-center">
+    <div className=" w-full h-full bg-black/50 py-20 px-10 lg:p-20 flex flex-col items-center">
       <div
         data-aos="fade-up"
         data-aos-duration="3000"
-        className=" w-full h-full rounded-lg p-10 bg-linear-to-r from-emerald-950 via-emerald-900 to-lime-900 border border-lime-700 flex"
+        className=" w-full h-full rounded-lg px-5 py-10 md:p-10 bg-linear-to-r from-emerald-950 via-emerald-900 to-lime-900 border border-lime-700 flex flex-col md:flex-row"
       >
-        <div className=" w-1/2 flex flex-col h-full">
+        <div className=" w-full lg:w-1/2 flex flex-col items-center md:items-baseline h-full">
           <div className=" flex">
-            <div className=" flex space-x-2 px-4 py-2 border border-lime-800 bg-emerald-800 items-center rounded-full">
-              <FaStar className=" text-lime-400" />
-              <p className=" text-lime-400 font-semibold">
+            <div className=" flex space-x-2 px-3 md:px-4 py-2 border border-lime-800 bg-emerald-800 items-center rounded-full">
+              <FaStar className=" text-lime-400 text-xs md:text-base" />
+              <p className=" text-lime-400 font-semibold text-xs md:text-base">
                 EXCLUSIVE FOR STUDENTS
               </p>
             </div>
           </div>
-          <div className=" flex w-full items-center space-x-5 mt-5">
+          <div className=" flex flex-col md:flex-row w-full items-center space-x-0 space-y-3 md:space-y-0 md:space-x-5 mt-5">
             <div className=" p-4 border border-lime-300/50 bg-emerald-800 flex items-center justify-center rounded-full">
               <FaVideo className=" text-lime-400 text-2xl" />
             </div>
-            <p className=" text-white text-3xl font-bold">
+            <p className=" text-white text-3xl font-bold text-center md:text-start">
               Online <span className=" text-lime-400">Learning Platform</span>
             </p>
           </div>
@@ -38,7 +38,7 @@ const Online_Register_Card = () => {
             හිමිවේ. නොමිලේ Video Lessons, PDF නිබන්ධන සහ තෝරාගත් Premium පාඩම්
             ඕනෑම වේලාවක නැරඹිය හැක.
           </p>
-          <div className=" w-full grid grid-cols-4 mt-5 gap-5">
+          <div className=" w-full grid grid-cols-2 md:grid-cols-4 mt-5 gap-5">
             <div className=" w-full flex flex-col ">
               <div className=" rounded-sm border border-lime-400 flex items-center justify-center w-10 h-10">
                 <MdOutlineSlowMotionVideo className=" text-lime-400 text-xl" />
@@ -79,11 +79,11 @@ const Online_Register_Card = () => {
                 <FaArrowAltCircleRight className=" text-white group-hover:text-black" />
               </div>
             </button>
-            <PiArrowArcLeftBold className=" text-5xl text-lime-500 ml-5 mr-3" />
-            <p className=" text-lime-500">සියලුම සිසුන්ට Platform ප්‍රවේශය</p>
+            <PiArrowArcLeftBold className=" hidden md:block text-5xl text-lime-500 ml-5 mr-3" />
+            <p className=" hidden md:block text-lime-500">සියලුම සිසුන්ට Platform ප්‍රවේශය</p>
           </div>
         </div>
-        <div className=" w-1/2 h-full flex items-center justify-center">
+        <div className=" w-1/2 mt-5 md:mt-0 h-full hidden lg:flex items-center justify-center">
           <img
             src={LaptopMockup}
             alt=""

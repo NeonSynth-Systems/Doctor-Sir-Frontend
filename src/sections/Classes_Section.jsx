@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 const Classes_Section = () => {
   return (
-    <div className=" w-full min-h-screen bg-black/50 p-20 flex flex-col items-center">
+    <div className=" w-full min-h-screen bg-black/50 p-10 md:p-20 flex flex-col items-center">
       <p
         data-aos="fade-up"
         data-aos-duration="3000"
@@ -27,20 +27,20 @@ const Classes_Section = () => {
       <p
         data-aos="fade-up"
         data-aos-duration="3000"
-        className=" pt-10 text-emerald-200 text-2xl"
+        className=" pt-10 text-emerald-200 text-xl text-center md:text-2xl"
       >
         සෑම සිසුවෙකුගේම අවශ්‍යතාවයට ගැළපෙන ජීව විද්‍යා පාඨමාලා
       </p>
 
       {/* Cards */}
 
-      <div className=" w-full h-120 flex justify-between items-center space-x-5 mt-20">
+      <div className=" w-full h-full lg:h-120 flex flex-col lg:flex-row justify-between items-center space-y-5 lg:space-y-0 space-x-0 lg:space-x-5 mt-20">
         {/* Theory Card */}
 
         <div
           data-aos="fade-up"
           data-aos-duration="3000"
-          className=" w-1/3 h-full rounded-xl bg-emerald-400 p-5 flex flex-col items-center"
+          className=" w-full lg:w-1/3 h-full rounded-xl bg-emerald-400 p-5 flex flex-col items-center"
         >
           <div className=" flex space-x-3 items-center">
             <LuDna className=" text-black text-xl" />
@@ -61,11 +61,11 @@ const Classes_Section = () => {
         <div
           data-aos="fade-up"
           data-aos-duration="3000"
-          className=" w-1/3 h-full flex flex-col space-y-5"
+          className=" w-full lg:w-1/3 h-full md:h-50 lg:h-full flex flex-col md:flex-row lg:flex-col space-y-5 md:space-y-0 lg:space-y-5 space-x-0 md:space-x-5 lg:space-x-0"
         >
           {/* Paper Card */}
 
-          <div className=" w-full h-1/2 rounded-xl bg-emerald-400 p-5 flex flex-col items-center">
+          <div className=" w-full md:w-1/2 lg:w-full h-1/2 md:h-full lg:h-1/2 rounded-xl bg-emerald-400 p-5 flex flex-col items-center">
             <div className=" flex space-x-3 items-center">
               <FaFilePen className=" text-black text-xl" />
               <p className=" text-xl font-bold text-black">Paper Class</p>
@@ -78,7 +78,7 @@ const Classes_Section = () => {
 
           {/* Revision  Card */}
 
-          <div className=" w-full h-1/2 rounded-xl bg-emerald-400 p-5 flex flex-col items-center">
+          <div className=" w-full md:w-1/2 lg:w-full h-1/2 md:h-full lg:h-1/2 rounded-xl bg-emerald-400 p-5 flex flex-col items-center">
             <div className=" flex space-x-3 items-center">
               <FaBookOpen className=" text-black text-xl" />
               <p className=" text-xl font-bold text-black">Revision Class</p>
@@ -95,7 +95,7 @@ const Classes_Section = () => {
         <div
           data-aos="fade-up"
           data-aos-duration="3000"
-          className=" w-1/3 h-full rounded-xl bg-emerald-400 p-5 flex flex-col items-center"
+          className="w-full lg:w-1/3 h-full rounded-xl bg-emerald-400 p-5 flex flex-col items-center"
         >
           <div className=" flex space-x-3 items-center">
             <FaArrowsRotate className=" text-black text-xl" />
@@ -120,31 +120,31 @@ const Classes_Section = () => {
       <div
         data-aos="fade-up"
         data-aos-duration="3000"
-        className=" w-full h-full mt-10 rounded-lg p-10 bg-linear-to-r from-emerald-950 via-emerald-900 to-lime-900 border border-lime-600 flex"
+        className=" w-full h-full mt-10 rounded-lg px-5 py-10 md:p-10 bg-linear-to-r from-emerald-950 via-emerald-900 to-lime-900 border border-lime-600 flex"
       >
         <div className=" w-full flex flex-col h-full items-center">
-          <div className=" flex w-full justify-end">
-            <div className=" flex space-x-2 px-4 py-2 border border-lime-500 bg-emerald-800 items-center rounded-full">
-              <FaStar className=" text-lime-400" />
-              <p className=" text-lime-400 font-semibold">
+          <div className=" flex w-full justify-center md:justify-end">
+            <div className=" flex space-x-2 px-3 md:px-4 py-2 border border-lime-800 bg-emerald-800 items-center rounded-full">
+              <FaStar className=" text-lime-400 text-xs md:text-base" />
+              <p className=" text-lime-400 font-semibold text-xs md:text-base">
                 EXCLUSIVE FOR STUDENTS
               </p>
             </div>
           </div>
-          <div className=" flex w-full items-center justify-center space-x-5 mt-5">
+          <div className=" flex flex-col md:flex-row w-full items-center justify-center space-y-3 md:space-y-0 space-x-0 md:space-x-5 mt-5">
             <div className=" p-4 border border-lime-300/50 bg-emerald-800 flex items-center justify-center rounded-full">
               <FaVideo className=" text-lime-400 text-2xl" />
             </div>
-            <p className=" text-white text-3xl font-bold">
+            <p className=" text-white text-3xl font-bold text-center">
               Online <span className=" text-lime-400">Learning Platform</span>
             </p>
           </div>
-          <p className=" w-150 pt-10 text-white text-center">
+          <p className=" lg:w-150 pt-10 text-white md:text-center">
             ලියාපදිංචි වන සියලුම සිසුන්ට Online Learning Platform වෙත ප්‍රවේශය
             හිමිවේ. නොමිලේ Video Lessons, PDF නිබන්ධන සහ තෝරාගත් Premium පාඩම්
             ඕනෑම වේලාවක නැරඹිය හැක.
           </p>
-          <div className=" w-160 grid grid-cols-4 mt-10 gap-5">
+          <div className=" w-full lg:w-160 grid grid-cols-2 md:grid-cols-4 mt-10 gap-5">
             <div className=" w-full flex flex-col ">
               <div className=" rounded-sm border border-lime-400 flex items-center justify-center w-10 h-10">
                 <MdOutlineSlowMotionVideo className=" text-lime-400 text-xl" />
@@ -178,15 +178,15 @@ const Classes_Section = () => {
             <button className=" w-65 bg-lime-500 rounded-lg px-10 py-3 cursor-pointer group hover:bg-emerald-200">
               <div className=" flex space-x-2 items-center justify-center">
                 <Link to="/olp/register" target="blank">
-                  <p className=" text-lime-50 group-hover:text-black font-bold">
+                  <p className=" text-lime-50 group-hover:text-black font-bold text-base md:text-sm lg:text-base">
                     ලියාපදිංචි වන්න
                   </p>
                 </Link>
                 <FaArrowAltCircleRight className=" text-white group-hover:text-black" />
               </div>
             </button>
-            <PiArrowArcLeftBold className=" text-5xl text-lime-500 ml-5 mr-3" />
-            <p className=" text-lime-500">සියලුම සිසුන්ට Platform ප්‍රවේශය</p>
+            <PiArrowArcLeftBold className=" hidden md:block text-5xl text-lime-500 ml-5 mr-3" />
+            <p className="hidden md:block text-lime-500">සියලුම සිසුන්ට Platform ප්‍රවේශය</p>
           </div>
         </div>
       </div>
@@ -196,81 +196,96 @@ const Classes_Section = () => {
       <div
         data-aos="fade-up"
         data-aos-duration="3000"
-        className=" w-full flex justify-center space-x-10 mt-20"
+        className=" w-full grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mt-20"
       >
-        <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
-          <p className=" text-lg font-semibold pb-5">2027 Theory</p>
-          <div className=" flex space-x-5 text-emerald-300">
+        <div className="w-full md:w-50 lg:w-full flex flex-col items-center md:items-start text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
+          <p className=" text-lg font-semibold pb-5 text-center md:text-start">2027 Theory</p>
+          <div className=" flex flex-col md:flex-row items-center space-y-2 md:space-y-0 space-x-0 md:space-x-5 text-emerald-300">
+            <FaCalendarAlt />
+            <p>බදාදා</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-y-0 space-x-0 md:space-x-5 py-3 text-red-300">
+            <FaClock />
+            <p className=" text-sm md:text-base">පෙ.ව. 08.30 - 12.30</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-amber-500">
+            <FaLocationDot />
+            <p className=" text-sm md:text-base">Chemist ඇකඩමිය වෙන්නප්පුව</p>
+          </div>
+        </div>
+        <div className=" w-full md:w-50 lg:w-full text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
+          <p className=" text-lg font-semibold pb-5 text-center md:text-start">2027 Revision</p>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-emerald-300">
+            <FaCalendarAlt />
+            <p>බ්‍රහස්පතින්දා</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 py-3 text-red-300">
+            <FaClock />
+            <p className=" text-sm md:text-base">පෙ.ව. 08.00 - 01.30</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-amber-500">
+            <FaLocationDot />
+            <p className=" text-sm md:text-base">Chemist ඇකඩමිය වෙන්නප්පුව</p>
+          </div>
+        </div>
+        <div className=" w-full md:w-50 lg:w-full text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
+          <p className=" text-lg font-semibold pb-5 text-center md:text-start">Full Paper Class</p>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-emerald-300">
+            <FaCalendarAlt />
+            <p>බ්‍රහස්පතින්දා</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 py-3 text-red-300">
+            <FaClock />
+            <p className=" text-sm md:text-base">ප.ව. 02.30 - 05.30</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-blue-400">
+            <TbWorld className=" text-xl" />
+            <p className=" text-sm md:text-base">Chemist ඇකඩමිය / Online</p>
+          </div>
+        </div>
+        <div className=" w-full md:w-50 lg:w-full text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
+          <p className=" text-lg font-semibold pb-5 text-center md:text-start">පළාත් ප්‍රශ්න පත්‍ර සාකච්ඡාව <span className=" text-red-400">FREE</span></p>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-emerald-300">
+            <FaCalendarAlt />
+            <p>බදාදා</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 py-3 text-red-300">
+            <FaClock />
+            <p className=" text-sm md:text-base">ප.ව. 08.00 - 11.30</p>
+          </div>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-blue-400">
+            <TbWorld className=" text-xl" />
+            <p className=" text-sm md:text-base">Chemist ඇකඩමිය / Online</p>
+          </div>
+        </div>
+        <div className=" w-full md:w-50 lg:w-full text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
+          <p className=" text-lg font-semibold pb-5 text-center md:text-start">2028 Theory</p>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-emerald-300">
             <FaCalendarAlt />
             <p>සෙනසුරාදා</p>
           </div>
-          <div className=" flex space-x-5 py-3 text-red-300">
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 py-3 text-red-300">
             <FaClock />
-            <p>ප.ව. 1.00 - 5.00</p>
+            <p className=" text-sm md:text-base">පෙ.ව. 08.30 - 12.30</p>
           </div>
-          <div className=" flex space-x-5 text-amber-500">
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-amber-500">
             <FaLocationDot />
-            <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
+            <p className=" text-sm md:text-base">Chemist ඇකඩමිය වෙන්නප්පුව</p>
           </div>
         </div>
-        <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
-          <p className=" text-lg font-semibold pb-5">2028 Theory</p>
-          <div className=" flex space-x-5 text-emerald-300">
+        <div className=" w-full md:w-50 lg:w-full text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
+          <p className=" text-lg font-semibold pb-5 text-center md:text-start">2028 Paper</p>
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-emerald-300">
             <FaCalendarAlt />
-            <p>ඉරිදා</p>
+            <p>සිකුරාදා</p>
           </div>
-          <div className=" flex space-x-5 py-3 text-red-300">
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 py-3 text-red-300">
             <FaClock />
-            <p>ප.ව. 1.00 - 5.00</p>
+            <p className=" text-sm md:text-base">ප.ව. 03.00 - 05.00</p>
           </div>
-          <div className=" flex space-x-5 text-amber-500">
+          <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-amber-500">
             <FaLocationDot />
-            <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
-          </div>
-        </div>
-        <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
-          <p className=" text-lg font-semibold pb-5">Paper Class</p>
-          <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt />
-            <p>බ්‍රහස්පතින්දා</p>
-          </div>
-          <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock />
-            <p>ප.ව. 7.00 - 10.00</p>
-          </div>
-          <div className=" flex space-x-5 text-blue-400">
-            <TbWorld className=" text-xl" />
-            <p>Online</p>
-          </div>
-        </div>
-        <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
-          <p className=" text-lg font-semibold pb-5">2027 Paper</p>
-          <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt />
-            <p>බ්‍රහස්පතින්දා</p>
-          </div>
-          <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock />
-            <p>ප.ව. 7.00 - 10.00</p>
-          </div>
-          <div className=" flex space-x-5 text-amber-500">
-            <FaLocationDot />
-            <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
-          </div>
-        </div>
-        <div className=" w-50 text-white p-3 border border-lime-300 rounded-lg backdrop-blur-sm">
-          <p className=" text-lg font-semibold pb-5">2027 Revision</p>
-          <div className=" flex space-x-5 text-emerald-300">
-            <FaCalendarAlt />
-            <p>බ්‍රහස්පතින්දා</p>
-          </div>
-          <div className=" flex space-x-5 py-3 text-red-300">
-            <FaClock />
-            <p>ප.ව. 1.00 - 5.00</p>
-          </div>
-          <div className=" flex space-x-5 text-amber-500">
-            <FaLocationDot />
-            <p>Chemist ඇකඩමිය වෙන්නප්පුව</p>
+            <p className=" text-sm md:text-base">Chemist ඇකඩමිය වෙන්නප්පුව</p>
           </div>
         </div>
       </div>

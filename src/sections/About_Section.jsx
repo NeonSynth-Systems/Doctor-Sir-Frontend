@@ -1,62 +1,60 @@
 import React from "react";
 import Aboutimg from "../assets/aboutimg.png";
+import { FaArrowDown } from "react-icons/fa";
 
 const About_Section = () => {
+  const scrollToSection = (id) => {
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }, 300);
+  };
+
   return (
     <div
-      className="w-full min-h-screen bg-cover"
+      className="w-full h-full bg-cover"
       style={{ backgroundImage: `url(${Aboutimg})` }}
     >
-      <div className=" w-full h-full bg-emerald-950/95 flex flex-col items-center p-20">
+      <div className=" w-full h-full bg-emerald-950/95 flex flex-col items-center p-10 lg:p-20">
         <p
           data-aos="fade-up"
           data-aos-duration="3000"
           className=" text-white text-2xl font-semibold"
         >
-          කවුද මේ ඩොක්ටර් සර්?
+          කවුද මේ ඩොක්ට සර්?
         </p>
         <div
           data-aos="fade-up"
           data-aos-duration="3000"
-          className=" w-150 h-55 bg-emerald-100 rounded-2xl p-5 mt-20"
+          className=" w-full h-full flex flex-col lg:flex-row justify-between lg:space-x-10 mt-20 items-center"
         >
-          <p className=" text-lg font-bold text-center pb-10">
-            අනාගත වෛද්‍යවරයෙකුගෙන් ජීව විද්‍යාව ඉගෙන ගන්න.
-          </p>
-          <p>
-            ජීව විද්‍යාව යනු විභාගයක් සමත් වීම සඳහා පමණක් නොව, ජීවිතය තේරුම්
-            ගැනීම සඳහාද ඉගෙන ගත යුතු විෂයකි. වෛද්‍ය අධ්‍යාපනය තුළින් ලබාගත්
-            ගැඹුරු දැනුම, සරල හා සිසුන්ට තේරුම් ගත හැකි ආකාරයෙන් ඔබ වෙත ගෙන එන
-            ඉගැන්වීමක්.
-          </p>
-        </div>
-        <div
-          data-aos="fade-up"
-          data-aos-duration="3000"
-          className=" w-full h-160 flex justify-between space-x-10 mt-20"
-        >
-          <div className=" w-1/2 h-full overflow-hidden rounded-lg">
+          <div className=" w-full md:w-100 lg:w-1/2 h-100 md:h-160 lg:h-160 overflow-hidden rounded-lg">
             <img
               src={Aboutimg}
               alt=""
               className=" w-full h-full object-cover hover:scale-105 transition-all duration-300"
             />
           </div>
-          <div className=" w-1/2 h-full">
-            <p className=" text-white">
-              ගයාන් මධුසංක මහතා උසස් පෙළ ජීව විද්‍යාව (Biology) විෂය සඳහා
-              කැපවීමෙන් කටයුතු කරන දක්ෂ හා නවීන ඉගැන්වීම් ක්‍රමවේදයන් අනුගමනය
-              කරන අධ්‍යාපනවේදියෙකි. සංකීර්ණ ජීව විද්‍යා සංකල්ප සරලව හා පැහැදිලිව
-              සිසුන්ට අවබෝධ කර දීම ඔහුගේ ඉගැන්වීම්වල විශේෂත්වයකි.
+          <div className=" w-full lg:w-1/2 h-full">
+            <p className=" text-white text-sm md:text-base mt-10 lg:mt-0">
+              ඩොක්ටර් සර් හෙවත් ගයාන් මධුසංඛ කැලණිය විශ්වවිද්‍යාලයේ වෛදය පීඨයෙන්
+              වෛද්‍ය උපාධිය සම්පූර්ණ කල උපාධිදාරියෙකි. උසස් පෙළ ජීව විද්‍යාව
+              විෂය සඳහා විශ්වවිද්‍යාල සමයේ සිටම උපකාරක පංති ක්ෂේත්‍රයට පිවිස මේ
+              වන විට වසර ගනනාවක අත්දැකීම් සහ විශිෂ්ට ප්‍රතිඵල රාශියක් බිහි
+              කිරීමට සෘජුව දායකත්වය දැරු ගුරුවරයෙකි. කැපවීමෙන් කටයුතු කරන දක්ෂ
+              හා නවීන ඉගැන්වීම් ක්‍රමවේදයන් අනුගමනය කරන ඔහු සංකීර්ණ ජීව විද්‍යා
+              සංකල්ප සරලව හා පැහැදිලිව සිසුන්ට අවබෝධ කර දීමට ඔහුටම වෙන් වූ
+              ක්‍රමවේද භාවිතය සිත්ගන්නා සුළුය.
               <br />
               <br />
-              ඔහුගේ ඉගැන්වීම් ක්‍රමය සංකල්ප මූලික ඉගෙනීම, ක්‍රමවත් පුනරීක්ෂණය,
+              ඔහුගේ ඉගැන්වීම් ක්‍රමය මූලික සංකල්ප ඉගෙනීම, ක්‍රමවත් පුනරීක්ෂණය,
               නිරන්තර ඇගයීම් සහ විභාගයට ගැළපෙන ප්‍රායෝගික මඟපෙන්වීම මත පදනම් වේ.
               සෑම සිසුවෙකුගේම හැකියාව හඳුනාගෙන, ඔවුන්ගේ අධ්‍යාපනික ඉලක්ක සාර්ථක
               කර ගැනීමට අවශ්‍ය නිවැරදි මඟපෙන්වීම ලබාදීම ඔහුගේ ප්‍රධාන අරමුණයි.
               <br />
               <br />
-              ගයාන් මධුසංක මහතාගේ පන්ති තුළින් සිසුන්ට විභාගයට පමණක් නොව, ජීව
+              ගයාන් මධුසංඛ මහතාගේ පන්ති තුළින් සිසුන්ට විභාගයට පමණක් නොව, ජීව
               විද්‍යාව පිළිබඳ ගැඹුරු අවබෝධයක් ලබාගැනීමටද අවස්ථාව සැලසේ. සරල
               උදාහරණ, නවීන ඉගැන්වීම් ක්‍රම, උසස් තත්ත්වයේ සටහන් සහ ක්‍රමවත්
               පුනරීක්ෂණ සැලසුම් හරහා සිසුන්ගේ විශ්වාසය හා දැනුම වර්ධනය කිරීම
@@ -64,73 +62,30 @@ const About_Section = () => {
               <br />
               <br />
               ඔහුගේ දැනුම, කැපවීම සහ සිසුන්ගේ සාර්ථකත්වය වෙනුවෙන් දක්වන උනන්දුව
-              හේතුවෙන්, උසස් පෙළ ජීව විද්‍යාව හදාරන සිසුන්ට විශ්වාසයෙන් යුතුව
-              තෝරාගත හැකි ගුරුවරයෙකු ලෙස ඔහුගේ පන්තිය ප්‍රසිද්ධියට පත්ව ඇත.
+              හේතුවෙන්, ඔහුගේ පන්තියට සහභාගිව විශිෂ්ට ප්‍රතිඵල ලබාගත් සිසුන්
+              විසින්, උසස් පෙළ ජීව විද්‍යාව හදාරන සිසුන්ට විශ්වාසයෙන් යුතුව
+              තෝරාගත හැකි ගුරුවරයෙකු ලෙස ඔහුව හැදින්වීම ගුරුවරයෙක් ලෙස අසීමිත
+              කැපවීම් මත ඩොක්ටර් සර් ලබාගත් විශාල ජයග්‍රාහනයකි.
             </p>
-            <div className=" flex space-x-5 mt-10">
-              <p className=" bg-white/50 px-10 py-3 rounded-lg border text-shadow-2xs text-shadow-black border-lime-400 text-lime-300 font-bold">
-                Medical Student
-              </p>
-              <p className=" bg-white/50 px-10 py-3 rounded-lg border text-shadow-2xs text-shadow-black border-lime-400 text-lime-300 font-bold">
-                A/L Biology Educator
-              </p>
-            </div>
           </div>
         </div>
         <p
           data-aos="fade-up"
           data-aos-duration="3000"
-          className=" text-center text-emerald-200 pt-20 text-lg"
+          className=" text-center text-emerald-200 pt-20 text-base md:text-lg"
         >
           " ජීව විද්‍යාව සරලව, තේරුම් ගත හැකි ලෙස සහ විභාගයට ගැළපෙන ආකාරයෙන්
-          ඉගැන්වීම මගේ අරමුණයි. වෛද්‍ය අධ්‍යාපනයෙන් ලබාගත් විද්‍යාත්මක දැනුම හා
-          අත්දැකීම් භාවිතා කරමින් සෑම සිසුවෙකුටම විෂය පිළිබඳ නිවැරදි අවබෝධයක්
-          ලබාදීමට කැපවී සිටිමි. "
+          ඉගැන්වීම මගේ අරමුණයි. වෛද්‍ය අධ්‍යාපනයෙන් ලබාගත් විද්‍යාත්මක දැනුම
+          මනෝවිද්‍යාත්මක ක්‍රම හාඅත්දැකීම් භාවිතා කරමින් සෑම සිසුවෙකුටම විෂය
+          පිළිබඳ නිවැරදි අවබෝධයක්ලබාදීමට කැපවී සිටිමි. "
         </p>
-        <div className=" w-full grid grid-cols-4 gap-5 pt-20">
+        <div data-aos="fade-up" data-aos-duration="3000">
           <div
-            data-aos="fade-up"
-            data-aos-duration="3000"
-            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
+            onClick={() => scrollToSection("wten")}
+            className=" flex flex-col items-center animate-bounce mt-20 text-lime-400 font-bold cursor-pointer"
           >
-            <p className="  font-bold text-lg text-center">
-              සංකල්ප මූලික ඉගැන්වීම
-            </p>
-            <p className=" text-center">
-              විෂය මතක තබා ගැනීම වෙනුවට තේරුම් ගැනීමට අවධානය.
-            </p>
-          </div>
-          <div
-            data-aos="fade-up"
-            data-aos-duration="3000"
-            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
-          >
-            <p className="  font-bold text-lg text-center">
-              සම්පූර්ණ විෂය නිර්දේශය
-            </p>
-            <p className=" text-center">
-              Theory, Revision සහ Paper Class එකම තැනක.
-            </p>
-          </div>
-          <div
-            data-aos="fade-up"
-            data-aos-duration="3000"
-            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
-          >
-            <p className="  font-bold text-lg text-center">සතියේ ඇගයීම්</p>
-            <p className=" text-center">
-              නිරන්තර පරීක්ෂණ හා ප්‍රගතිය නිරීක්ෂණය.
-            </p>
-          </div>
-          <div
-            data-aos="fade-up"
-            data-aos-duration="3000"
-            className=" w-full flex flex-col items-center space-y-5 bg-lime-100 rounded-lg p-3"
-          >
-            <p className="  font-bold text-lg text-center">විභාග ඉලක්කය</p>
-            <p className=" text-center">
-              A සාමාර්ථයක් සඳහා සැලසුම් කළ ඉගැන්වීම් ක්‍රමවේදය.
-            </p>
+            <p>W10</p>
+            <FaArrowDown />
           </div>
         </div>
       </div>
