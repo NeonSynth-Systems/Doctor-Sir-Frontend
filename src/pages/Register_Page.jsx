@@ -19,6 +19,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import IconButton from "@mui/material/IconButton";
 import { Link, useNavigate } from "react-router-dom";
 import API from "@/api/axios";
+import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
 const Register_Page = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -108,7 +109,9 @@ const Register_Page = () => {
     }
   };
 
-  const years = ["2027", "2028"];
+  const [year, setYear] = useState(new Date().getFullYear());
+  const years = Array.from({ length: 11 }, (_, index) => 2020 + index);
+
   const districts = [
     "Ampara",
     "Anuradhapura",
@@ -384,7 +387,79 @@ const Register_Page = () => {
                   },
                 }}
               />
-              <div className=" flex items-center space-x-5 mb-5">
+
+              <div className="flex items-center space-x-5 mb-5">
+                {/* Icon */}
+                <div className="w-10 h-10 flex items-center justify-center bg-emerald-900 rounded-full p-2 border border-emerald-200/30">
+                  <FaUserGraduate className="text-lg text-lime-400" />
+                </div>
+
+                {/* A/L Year Autocomplete */}
+                <Autocomplete
+                  disablePortal
+                  options={years}
+                  value={formData.alYear ? Number(formData.alYear) : null}
+                  onChange={(event, newValue) => {
+                    setFormData({
+                      ...formData,
+                      alYear: newValue ? String(newValue) : "",
+                    });
+                  }}
+                  sx={{
+                    width: "100%",
+                    "& .MuiOutlinedInput-root": {
+                      color: "white",
+                      borderRadius: "12px",
+                      backgroundColor: "#022c22",
+
+                      "& fieldset": {
+                        borderColor: "#047857",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "#047857",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#84cc16",
+                      },
+                    },
+                    "& .MuiInputBase-input::placeholder": {
+                      color: "#BDBDBD",
+                      opacity: 0.9,
+                    },
+                    "& .MuiSvgIcon-root": {
+                      color: "#84cc16",
+                    },
+                  }}
+                  slotProps={{
+                    paper: {
+                      sx: {
+                        backgroundColor: "#022c22",
+                        color: "white",
+
+                        "& .MuiAutocomplete-option": {
+                          color: "white",
+                        },
+                        "& .MuiAutocomplete-option:hover": {
+                          backgroundColor: "#064e3b",
+                        },
+                        "& .MuiAutocomplete-option[aria-selected='true']": {
+                          backgroundColor: "#065f46",
+                        },
+                      },
+                    },
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="A/L Year"
+                      required
+                      name="alYear"
+                    />
+                  )}
+                />
+              </div>
+
+              {/* <div className=" flex items-center space-x-5 mb-5">
                 <div className=" w-10 h-10 flex items-center justify-center bg-emerald-900 rounded-full p-2 border border-emerald-200/30">
                   <FaUserGraduate className=" text-lg text-lime-400 " />
                 </div>
@@ -446,7 +521,7 @@ const Register_Page = () => {
                     />
                   )}
                 />
-              </div>
+              </div> */}
               <div className=" flex items-center space-x-5 mb-5">
                 <div className=" w-10 h-10 flex items-center justify-center bg-emerald-900 rounded-full p-2 border border-emerald-200/30">
                   <FaLocationDot className=" text-lg text-lime-400 " />

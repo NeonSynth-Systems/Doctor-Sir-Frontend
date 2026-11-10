@@ -9,7 +9,9 @@ import Footer from '@/components/Footer'
 const Layout_Page = () => {
 
   useEffect(()=>{
-    Aos.init();
+    Aos.init({
+      once: true,
+    });
   },[])
 
   return (

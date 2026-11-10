@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   MdDashboard,
   MdPeople,
@@ -10,9 +10,12 @@ import {
   MdSchool,
   MdClose,
 } from "react-icons/md";
+import { TbLogout } from "react-icons/tb";
+import API from "@/api/axios";
 
 const Admin_Drawer = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     {
@@ -48,6 +51,17 @@ const Admin_Drawer = () => {
     },
   ];
 
+  const handleLogout = async () => {
+    try {
+      await API.post("/auth/logout");
+
+      setMobileOpen(false);
+      navigate("/olp/login", { replace: true });
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
   const closeMobileDrawer = () => {
     setMobileOpen(false);
   };
@@ -57,8 +71,7 @@ const Admin_Drawer = () => {
       {/* ========================================
           MOBILE TOP BAR
       ======================================== */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-[60] h-16 bg-emerald-950 border-b border-emerald-800 flex items-center justify-between px-4">
-
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-60 h-16 bg-emerald-950 border-b border-emerald-800 flex items-center justify-between px-4">
         <p className='text-lime-300 text-lg font-bold font-["Inter"] italic'>
           Gayan Madhusanka
         </p>
@@ -78,7 +91,7 @@ const Admin_Drawer = () => {
       ======================================== */}
       {mobileOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-[70] bg-black/50 backdrop-blur-sm"
+          className="lg:hidden fixed inset-0 z-70 bg-black/50 backdrop-blur-sm"
           onClick={closeMobileDrawer}
         />
       )}
@@ -91,7 +104,7 @@ const Admin_Drawer = () => {
           fixed
           top-0
           left-0
-          z-[80]
+          z-80
           h-screen
           w-72
           bg-emerald-200
@@ -102,27 +115,19 @@ const Admin_Drawer = () => {
 
           lg:translate-x-0
 
-          ${
-            mobileOpen
-              ? "translate-x-0"
-              : "-translate-x-full"
-          }
+          ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-
         {/* ========================================
             HEADER
         ======================================== */}
         <div className="h-20 px-5 flex items-center justify-between border-b border-emerald-300">
-
           <div>
             <p className='text-emerald-950 text-xl font-bold font-["Inter"] italic'>
               Gayan Madhusanka
             </p>
 
-            <p className="text-xs text-emerald-700 mt-1">
-              Admin Panel
-            </p>
+            <p className="text-xs text-emerald-700 mt-1">Admin Panel</p>
           </div>
 
           {/* Mobile close button */}
@@ -134,14 +139,12 @@ const Admin_Drawer = () => {
           >
             <MdClose className="text-xl" />
           </button>
-
         </div>
 
         {/* ========================================
             NAVIGATION
         ======================================== */}
         <nav className="p-4 space-y-2">
-
           {navItems.map((item) => {
             const Icon = item.icon;
 
@@ -182,39 +185,21 @@ const Admin_Drawer = () => {
               STUDENT MODE
           ======================================== */}
           <div className="pt-5 mt-4 border-t border-emerald-300">
-
-            <NavLink
-              to="/olp/home"
-              onClick={closeMobileDrawer}
+            <button
+              type="button"
+              onClick={handleLogout}
               className="
-                flex
-                items-center
-                justify-center
-                gap-2
-                w-full
-                px-4
-                py-3
-                rounded-xl
-                font-bold
-                text-emerald-950
-                bg-lime-400
-                border
-                border-lime-500
-                hover:bg-lime-300
-                hover:text-emerald-950
-                transition-all
-                duration-300
-              "
+    flex items-center justify-center gap-2 w-full px-4 py-3
+    rounded-xl font-bold text-emerald-950 bg-lime-400
+    border border-lime-500 hover:bg-lime-300
+    transition-all duration-300 cursor-pointer
+  "
             >
-              <MdSchool className="text-xl" />
-
-              <span>Student Mode</span>
-            </NavLink>
-
+              <TbLogout className="text-xl" />
+              <span>Log Out</span>
+            </button>
           </div>
-
         </nav>
-
       </aside>
     </>
   );

@@ -71,13 +71,7 @@ const WeeklyWorksSection = () => {
   };
 
 
-  if (loading) {
-    return (
-      <section className="w-full px-10 md:px-14 lg:px-10 py-10">
-        <div className="w-full h-72 rounded-3xl bg-white/5 animate-pulse" />
-      </section>
-    );
-  }
+  
 
 
   if (currentWorks.length === 0) {
@@ -117,13 +111,13 @@ const WeeklyWorksSection = () => {
 
 
       <div data-aos="fade-up"
-        data-aos-duration="3000" className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 backdrop-blur-sm">
+        data-aos-duration="3000" className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 ">
 
         {currentWorks.map((work, index) => (
 
           <div
             key={work._id}
-            className="group relative min-h-60 rounded-2xl overflow-hidden bg-white/4 border border-white/10 hover:border-emerald-400/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10 p-6"
+            className="group backdrop-blur-sm relative min-h-60 rounded-2xl overflow-hidden bg-white/4 border border-white/10 hover:border-emerald-400/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10 p-6"
           >
 
             {/* TOP GLOW */}

@@ -155,8 +155,8 @@ I am sending the payment receipt here for verification.`;
             <img src={ComLogo} alt="" className=" w-40" />
             <div>
               <p className=" text-white font-bold">Commercial Bank</p>
-              <p className=" text-sm text-gray-300">Accunt No : 8010889788</p>
-              <p className=" text-sm text-gray-300">Name : GM Perera</p>
+              <p className=" text-sm text-gray-300">Accunt No : 8031980827</p>
+              <p className=" text-sm text-gray-300">Name : W R A G Madhusankha</p>
               <p className=" text-sm text-gray-300">Branch : Wennappuwa</p>
             </div>
           </div>

@@ -277,7 +277,7 @@ const Classes_Section = () => {
           <p className=" text-lg font-semibold pb-5 text-center md:text-start">2028 Paper</p>
           <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 text-emerald-300">
             <FaCalendarAlt />
-            <p>සිකුරාදා</p>
+            <p>අගහරුවාදා</p>
           </div>
           <div className=" flex flex-col md:flex-row items-center text-center md:text-start space-y-2 md:space-x-5 py-3 text-red-300">
             <FaClock />
