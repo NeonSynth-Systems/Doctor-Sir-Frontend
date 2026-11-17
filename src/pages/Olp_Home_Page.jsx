@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { PiVideoFill } from "react-icons/pi";
-import { FaHeart, FaStar } from "react-icons/fa";
+import { PiVideoCameraLight, PiVideoFill } from "react-icons/pi";
+import { FaBookOpen, FaHeart, FaStar } from "react-icons/fa";
 import Lesson_Card from "@/components/Lesson_Card";
 import Premium_Card from "@/components/Premium_Card";
 import { Link, useNavigate } from "react-router-dom";
@@ -113,9 +113,43 @@ const Olp_Home_Page = () => {
         {lessonLoading ? (
           <div>Loading...</div>
         ) : filteredLessons.length === 0 ? (
-          <div className="text-gray-400">
-            No {type === "all" ? "" : type} lessons available.
-          </div>
+          <div className="col-span-full flex justify-center py-10">
+  <div className="w-full max-w-lg rounded-2xl border border-emerald-700/50 bg-emerald-950/50 p-8 md:p-12 text-center shadow-xl">
+
+    {/* Icon */}
+    <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-800/70">
+      <PiVideoCameraLight className="text-5xl text-lime-400" />
+    </div>
+
+    {/* Heading */}
+    <h2 className="mb-3 text-xl md:text-2xl font-bold text-white">
+      {type === "all"
+        ? "පාඩම් තවමත් එකතු කර නොමැත!"
+        : type === "free"
+        ? "නොමිලේ පාඩම් දැනට නොමැත!"
+        : "Premium පාඩම් දැනට නොමැත!"}
+    </h2>
+
+    {/* Description */}
+    <p className="mb-6 text-sm md:text-base leading-7 text-gray-300">
+      මේ වන විට ඔබට නැරඹිය හැකි පාඩම් කිසිවක් නොමැත.
+      නව පාඩම් එකතු කළ විගස ඔබට මෙහිදී ඒවා නැරඹීමට හැකි වනු ඇත.
+    </p>
+
+    {/* Bottom message */}
+    <div className="flex items-center justify-center gap-2 text-lime-400">
+      <FaBookOpen />
+      <span className="text-sm font-semibold">
+        ඉගෙනීමේ ගමන දිගටම කරගෙන යමු!
+      </span>
+    </div>
+
+    <p className="mt-5 text-xs text-gray-500">
+      කරුණාකර පසුව නැවත පරීක්ෂා කරන්න.
+    </p>
+
+  </div>
+</div>
         ) : (
           filteredLessons.map((lesson) => (
             <div key={lesson._id}>
