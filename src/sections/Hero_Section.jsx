@@ -13,9 +13,9 @@ const Hero_Section = () => {
           data-aos-duration="3000" className=" w-full md:w-150 h-full mt-10">
           <div className=" flex h-25 w-full space-x-5 items-center">
             <div className=" h-13 md:h-20 bg-lime-400 flex items-center justify-center px-5">
-              <p className="text-3xl md:text-7xl " style={{ fontFamily: "FMGemunu" }}>
+              <h1 className="text-3xl md:text-7xl " style={{ fontFamily: "FMGemunu" }}>
                 fvdlag¾ i¾f.a
-              </p>
+              </h1>
             </div>
             <div className=" flex flex-col justify-end h-full md:mt-10">
               <p className=" text-lime-400 text-3xl md:text-6xl font-['Creepster']">BIO</p>
